@@ -1,6 +1,6 @@
 /*
   Светодиодный куб 4х4х4. Рабработал AnLi.
-  Страница проекта на GitHub:
+  Страница проекта на GitHub: https://github.com/AnLiMan/LED-Cube-4x4x4-with-74HC595.git
   Схема и плата на EasyEDA: https://easyeda.com/editor#id=|5cb62fc882c94fa4b59210dbcad63457|d4bf3f2b6d364da8a2fccc2df8eb6aac
   Версия  2.2.1(Redux)
 */
