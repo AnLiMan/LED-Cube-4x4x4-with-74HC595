@@ -18,7 +18,7 @@
 #define GreenLED  A5 // Зелёный светодиод индикации
 #define RedLED  A4 // Красный светодиод индикации
 
-#define MaxModes 16 //Количество эффектов
+#define MaxModes 15 //Количество эффектов
 #define numOfRegisters 2 // Число сдвиговых регистров
 
 //---------------Все переменные------------
@@ -97,77 +97,107 @@ void loop() {
     switch (CurrentMode) {
       case 0:
         Random(); //Зажигание случайного светодиода
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500); // изменение скорости анимации
         break;
       case 1:
         Light(); //Светильник
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 2:
         EffectA(); // Бегающий огонек
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 3:
         EffectD(); //  2 огонька
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 4:
         EffectB(); // 2 огонька друг за другом
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 5:
         EffectE(); // 2 огонька без заполнения краёв
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 6:
         Snake2(); // Вторая змейка
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 7:
         Layerseffect1(); // Анимация слоёв
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 8:
         Layerseffect2(); // Анимация слоёв (1 плоскость)
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 9:
         BlinkCube(); // Мерцающий куб
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 10:
         Random2(); // Зажигание случайных столбиков
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 11:
         Spin(); // Спираль
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 12:
         Collomnseffect(); // Анимация колонн
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 13:
         CrazyFly(); // Блуждающаяя точка
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
       case 14:
         EasyRain(); // Простой дождик
-        CurrentMode++;
+        if (EverlastingCycleFlag == false) {
+          CurrentMode++;
+        }
         EffectSpeed = random(150, 500);
         break;
     }
@@ -181,7 +211,6 @@ void loop() {
     }
   }
 }
-
 
 //--------------------------------------------------------------//
 //-----------------1. Основные режимы работы-------------
@@ -199,10 +228,7 @@ void Random()
       myTimer1 += EffectSpeed;
       Layers2(Layer);
       regWrite(LED, HIGH);
-      //Проверка на бесконечность режима
-      if (EverlastingCycleFlag == false) {
-        i++;
-      }
+      i++;
     }
   }
   FOR_i(0, 16) {
@@ -227,10 +253,7 @@ void Light()
         myTimer1 = millis();
       }
     }
-    //Проверка на бесконечность режима
-    if (EverlastingCycleFlag == false) {
-      i++;
-    }
+    i++;
   }
 }
 
@@ -247,10 +270,7 @@ void EffectA()
         j++;
       }
     }
-    //Проверка на бесконечность режима
-    if (EverlastingCycleFlag == false) {
-      i++;
-    }
+    i++;
   }
 }
 // --------1.4. 2 огонька------
@@ -270,10 +290,7 @@ void EffectD()
         }
       }
     }
-    //Проверка на бесконечность режима
-    if (EverlastingCycleFlag == false) {
-      i++;
-    }
+    i++;
   }
 }
 
@@ -322,10 +339,7 @@ void EffectE()
         }
       }
     }
-    //Проверка на бесконечность режима
-    if (EverlastingCycleFlag == false) {
-      m++;
-    }
+    m++;
   }
 }
 
